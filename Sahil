@@ -1,0 +1,2009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#176b4d">
+
+  <title>Sahil Makhana Store | Fresh Makhana</title>
+  <meta name="description"
+        content="Fresh hygienically roasted makhana delivered to your door from Sahil Makhana Store.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #176b4d;
+      --green-dark: #0d5139;
+      --green-light: #e8f5ef;
+      --cream: #fffaf0;
+      --gold: #e6a93a;
+      --text: #17231e;
+      --muted: #66736d;
+      --white: #ffffff;
+      --border: #e5ebe8;
+      --shadow: 0 10px 30px rgba(23, 107, 77, .10);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f7faf8;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+    header {
+      background:
+        radial-gradient(circle at top right, rgba(230,169,58,.18), transparent 35%),
+        linear-gradient(135deg, #176b4d, #0d5139);
+      color: white;
+      padding: 28px 18px 34px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      font-size: 28px;
+      flex-shrink: 0;
+    }
+
+    .brand h1 {
+      font-size: clamp(25px, 7vw, 40px);
+      font-weight: 800;
+      letter-spacing: -.8px;
+      line-height: 1.1;
+    }
+
+    .brand p {
+      color: rgba(255,255,255,.84);
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    .hero-copy {
+      margin-top: 28px;
+      max-width: 680px;
+    }
+
+    .hero-copy h2 {
+      font-size: clamp(28px, 8vw, 48px);
+      line-height: 1.08;
+      letter-spacing: -1.2px;
+    }
+
+    .hero-copy p {
+      margin-top: 13px;
+      color: rgba(255,255,255,.82);
+      font-size: 15px;
+      max-width: 550px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 20px;
+    }
+
+    .trust-pill {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      padding: 7px 11px;
+      font-size: 12px;
+      color: white;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 24px 15px 100px;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .section-heading h2 {
+      font-size: 22px;
+    }
+
+    .section-heading p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* CATEGORY FILTER */
+    .categories {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 7px;
+      margin-bottom: 22px;
+      scrollbar-width: none;
+    }
+
+    .categories::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-btn {
+      white-space: nowrap;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 9px 15px;
+      font-weight: 600;
+      font-size: 13px;
+      transition: .2s;
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      background: var(--green);
+      border-color: var(--green);
+      color: white;
+    }
+
+    /* PRODUCT GRID */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 5px 18px rgba(0,0,0,.04);
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-image-wrap {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: #eef4f0;
+      overflow: hidden;
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .35s;
+    }
+
+    .product-card:hover .product-image {
+      transform: scale(1.04);
+    }
+
+    .product-info {
+      padding: 13px;
+    }
+
+    .product-category {
+      font-size: 10px;
+      color: var(--green);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    .product-name {
+      margin-top: 4px;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .product-description {
+      margin-top: 5px;
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .price {
+      font-size: 17px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .add-btn {
+      border: none;
+      background: var(--green);
+      color: white;
+      border-radius: 11px;
+      padding: 9px 11px;
+      font-weight: 700;
+      font-size: 12px;
+      transition: .2s;
+    }
+
+    .add-btn:hover {
+      background: var(--green-dark);
+    }
+
+    .add-btn:active {
+      transform: scale(.94);
+    }
+
+    /* ABOUT */
+    .about {
+      margin-top: 34px;
+      background: var(--cream);
+      border: 1px solid #f0e8d3;
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .about h2 {
+      font-size: 21px;
+    }
+
+    .about p {
+      margin-top: 8px;
+      color: #59625e;
+      font-size: 14px;
+    }
+
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 17px;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 13px;
+      border-radius: 13px;
+      font-size: 13px;
+    }
+
+    .contact-card strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    /* CART FLOAT */
+    .cart-floating {
+      position: fixed;
+      right: 17px;
+      bottom: 82px;
+      z-index: 50;
+      width: 58px;
+      height: 58px;
+      border: none;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      box-shadow: 0 10px 28px rgba(0,0,0,.23);
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      transition: .2s;
+    }
+
+    .cart-floating:hover {
+      transform: scale(1.06);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -3px;
+      right: -2px;
+      min-width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #e54848;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 800;
+      border: 2px solid white;
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      z-index: 49;
+      background: #25D366;
+      color: white;
+      border-radius: 999px;
+      padding: 11px 16px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      box-shadow: 0 7px 22px rgba(0,0,0,.18);
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 100;
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal {
+      background: white;
+      width: 100%;
+      max-width: 650px;
+      max-height: 92vh;
+      overflow-y: auto;
+      border-radius: 23px 23px 0 0;
+      padding: 20px;
+      animation: slideUp .25s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      position: sticky;
+      top: -20px;
+      padding: 5px 0 15px;
+      background: white;
+      z-index: 2;
+    }
+
+    .modal-header h2 {
+      font-size: 22px;
+    }
+
+    .close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: #f6f8f7;
+      font-size: 20px;
+    }
+
+    /* CART ITEMS */
+    .empty-cart {
+      text-align: center;
+      padding: 38px 15px;
+      color: var(--muted);
+    }
+
+    .empty-cart .empty-icon {
+      font-size: 45px;
+      margin-bottom: 10px;
+    }
+
+    .cart-item {
+      display: grid;
+      grid-template-columns: 62px 1fr;
+      gap: 11px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-thumb {
+      width: 62px;
+      height: 62px;
+      border-radius: 11px;
+      object-fit: cover;
+    }
+
+    .cart-item-name {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .cart-item-price {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 3px;
+    }
+
+    .cart-item-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      overflow: hidden;
+    }
+
+    .quantity-control button {
+      width: 30px;
+      height: 29px;
+      border: none;
+      background: #f4f7f5;
+      font-weight: 800;
+    }
+
+    .quantity-control span {
+      width: 30px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .remove-btn {
+      border: none;
+      background: transparent;
+      color: #d84747;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .item-subtotal {
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    /* TOTAL */
+    .cart-summary {
+      margin-top: 18px;
+      background: var(--green-light);
+      padding: 16px;
+      border-radius: 15px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      font-size: 14px;
+    }
+
+    .summary-row.total {
+      margin-top: 8px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(23,107,77,.16);
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      border: none;
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: 13px;
+      background: var(--green);
+      color: white;
+      font-weight: 800;
+      font-size: 15px;
+    }
+
+    .checkout-btn:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+    }
+
+    /* CHECKOUT */
+    .checkout {
+      display: none;
+    }
+
+    .checkout.show {
+      display: block;
+    }
+
+    .cart-view.hidden {
+      display: none;
+    }
+
+    .checkout h3 {
+      font-size: 19px;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      margin-bottom: 13px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      border: 1px solid #dce4df;
+      border-radius: 11px;
+      padding: 12px;
+      outline: none;
+      background: #fbfcfb;
+      transition: .2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(23,107,77,.08);
+    }
+
+    .form-group textarea {
+      min-height: 85px;
+      resize: vertical;
+    }
+
+    .required {
+      color: #d84747;
+    }
+
+    .submit-order {
+      width: 100%;
+      border: none;
+      border-radius: 13px;
+      padding: 14px;
+      background: var(--green);
+      color: white;
+      font-weight: 800;
+      margin-top: 5px;
+    }
+
+    .back-cart {
+      border: none;
+      background: transparent;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    /* SUCCESS */
+    .success {
+      display: none;
+      text-align: center;
+      padding: 30px 10px 15px;
+    }
+
+    .success.show {
+      display: block;
+    }
+
+    .success-icon {
+      width: 65px;
+      height: 65px;
+      margin: auto;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 31px;
+    }
+
+    .success h2 {
+      margin-top: 15px;
+      font-size: 23px;
+    }
+
+    .success p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .success-whatsapp {
+      display: inline-flex;
+      margin-top: 18px;
+      background: #25D366;
+      color: white;
+      border-radius: 999px;
+      padding: 11px 17px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 150px;
+      transform: translate(-50%, 20px);
+      background: #17231e;
+      color: white;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 200;
+      transition: .25s;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* DESKTOP */
+    @media (min-width: 650px) {
+      header {
+        padding: 40px 25px 50px;
+      }
+
+      main {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .contact-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .modal-overlay {
+        align-items: center;
+      }
+
+      .modal {
+        border-radius: 23px;
+        max-height: 88vh;
+      }
+    }
+
+    @media (min-width: 950px) {
+      .product-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="header-inner">
+
+      <div class="brand">
+        <div class="logo">🌿</div>
+
+        <div>
+          <h1>SAHIL MAKHANA STORE</h1>
+          <p>Fresh MAKHANA delivered to your door</p>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <h2>Healthy snacking,<br>made simple.</h2>
+
+        <p>
+          Fresh, hygienically roasted makhana prepared with care in our
+          home kitchen and delivered to your door.
+        </p>
+
+        <div class="trust-row">
+          <span class="trust-pill">✓ Freshly Roasted</span>
+          <span class="trust-pill">✓ Home Kitchen</span>
+          <span class="trust-pill">✓ Order Online</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+  <main>
+
+    <section>
+
+      <div class="section-heading">
+        <div>
+          <h2>Our Makhana</h2>
+          <p>Choose your favourite healthy snack.</p>
+        </div>
+      </div>
+
+      <!-- CATEGORY BUTTONS -->
+      <div class="categories">
+        <button class="category-btn active" data-category="all">
+          All
+        </button>
+
+        <button class="category-btn" data-category="snacks">
+          Healthy Snacks
+        </button>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div id="productGrid" class="product-grid"></div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+    <section class="about">
+
+      <h2>About Sahil Makhana Store</h2>
+
+      <p>
+        We prepare delicious makhana with care and focus on freshness,
+        hygiene and great taste. Place your order online and we will
+        contact you to confirm availability, pricing and delivery.
+      </p>
+
+      <div class="contact-row">
+
+        <div class="contact-card">
+          <strong>📍 Location</strong>
+          Bilaspur, Himachal Pradesh
+        </div>
+
+        <div class="contact-card">
+          <strong>📞 Phone</strong>
+          <a href="tel:8699537289">8699537289</a>
+        </div>
+
+        <div class="contact-card">
+          <strong>✉️ Email</strong>
+          <a href="mailto:sahilthakur1650@gmail.com">
+            sahilthakur1650@gmail.com
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ================= FLOATING CART ================= -->
+
+  <button
+    class="cart-floating"
+    id="openCart"
+    aria-label="Open shopping cart">
+
+    🛒
+
+    <span class="cart-count" id="cartCount">0</span>
+
+  </button>
+
+
+  <!-- ================= WHATSAPP ================= -->
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/918699537289"
+    target="_blank"
+    rel="noopener">
+
+    <span>💬</span>
+    Chat on WhatsApp
+
+  </a>
+
+
+  <!-- ================= CART MODAL ================= -->
+
+  <div
+    class="modal-overlay"
+    id="cartModal"
+    role="dialog"
+    aria-modal="true">
+
+    <div class="modal">
+
+      <div class="modal-header">
+        <h2>Your Cart</h2>
+
+        <button
+          class="close-btn"
+          id="closeCart"
+          aria-label="Close cart">
+          ×
+        </button>
+      </div>
+
+
+      <!-- CART VIEW -->
+
+      <div class="cart-view" id="cartView">
+
+        <div id="cartItems"></div>
+
+        <div class="cart-summary">
+
+          <div class="summary-row">
+            <span>Items</span>
+            <strong id="totalItems">0</strong>
+          </div>
+
+          <div class="summary-row total">
+            <span>Grand Total</span>
+            <strong id="grandTotal">₹0</strong>
+          </div>
+
+        </div>
+
+        <button
+          class="checkout-btn"
+          id="checkoutBtn"
+          disabled>
+
+          Place Order
+
+        </button>
+
+      </div>
+
+
+      <!-- CHECKOUT VIEW -->
+
+      <div class="checkout" id="checkoutView">
+
+        <button class="back-cart" id="backToCart">
+          ← Back to cart
+        </button>
+
+        <h3>Delivery Details</h3>
+
+        <!--
+          IMPORTANT:
+          Formspree receives the form submission.
+
+          The action below is the Formspree endpoint supplied
+          in your request.
+        -->
+
+        <form
+          id="orderForm"
+          action="https://formspree.io/f/mnpqlwvo"
+          method="POST">
+
+          <input
+            type="hidden"
+            name="_subject"
+            value="New Order - Sahil Makhana Store">
+
+          <input
+            type="hidden"
+            name="_replyto"
+            id="hiddenReplyTo">
+
+          <input
+            type="hidden"
+            name="Order Summary"
+            id="orderSummaryField">
+
+          <input
+            type="hidden"
+            name="Grand Total"
+            id="orderTotalField">
+
+          <input
+            type="hidden"
+            name="Store"
+            value="SAHIL MAKHANA STORE">
+
+          <div class="form-group">
+
+            <label>
+              Customer Name
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="text"
+              name="Customer Name"
+              id="customerName"
+              placeholder="Enter your name"
+              required>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Phone Number
+              <span class="required">*</span>
+            </label>
+
+            <input
+              type="tel"
+              name="Phone Number"
+              id="customerPhone"
+              placeholder="Enter your phone number"
+              inputmode="tel"
+              required>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Delivery Address
+              <span class="required">*</span>
+            </label>
+
+            <textarea
+              name="Delivery Address"
+              id="customerAddress"
+              placeholder="House / street / village / city / PIN"
+              required></textarea>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Special Instructions
+            </label>
+
+            <textarea
+              name="Special Instructions"
+              id="instructions"
+              placeholder="Any special request?"></textarea>
+
+          </div>
+
+
+          <button
+            class="submit-order"
+            id="submitOrder"
+            type="submit">
+
+            Place Order — <span id="submitTotal">₹0</span>
+
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <!-- SUCCESS -->
+
+      <div class="success" id="successView">
+
+        <div class="success-icon">
+          ✓
+        </div>
+
+        <h2>Order placed!</h2>
+
+        <p>
+          SAHIL MAKHANA STORE will contact you on WhatsApp
+          to confirm your order.
+        </p>
+
+        <a
+          class="success-whatsapp"
+          href="https://wa.me/918699537289"
+          target="_blank"
+          rel="noopener">
+
+          💬 Message us on WhatsApp
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+
+  <div
+    class="toast"
+    id="toast"
+    role="status">
+  </div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    /* ================================================
+       PRODUCT DATA
+       ================================================ */
+
+    const products = [
+
+      {
+        id: 1,
+
+        name: "Black Salt Makhana (150g)",
+
+        price: 200,
+
+        category: "snacks",
+
+        description:
+          "Hygienically roasted in our home kitchen.",
+
+        /*
+          Direct ImgBB CDN URL.
+        */
+
+        image:
+          "https://i.ibb.co/S4dFHYH5/IMG-3987.png"
+      },
+
+
+      {
+        id: 2,
+
+        name: "Desi Ghee Makhana (150g)",
+
+        price: 280,
+
+        category: "snacks",
+
+        description:
+          "Delicious makhana roasted with desi ghee.",
+
+        /*
+          Direct ImgBB CDN URL.
+        */
+
+        image:
+          "https://i.ibb.co/XxqXp0N0/IMG-3989.png"
+      }
+
+    ];
+
+
+    /* ================================================
+       SHOP SETTINGS
+       ================================================ */
+
+    const SHOP_PHONE = "918699537289";
+
+    const WHATSAPP_URL =
+      "https://wa.me/" + SHOP_PHONE;
+
+
+    /* ================================================
+       CART
+       ================================================ */
+
+    let cart =
+      JSON.parse(
+        localStorage.getItem("sahilMakhanaCart")
+      ) || [];
+
+
+    /* ================================================
+       ELEMENTS
+       ================================================ */
+
+    const productGrid =
+      document.getElementById("productGrid");
+
+    const cartModal =
+      document.getElementById("cartModal");
+
+    const cartItems =
+      document.getElementById("cartItems");
+
+    const cartCount =
+      document.getElementById("cartCount");
+
+    const totalItems =
+      document.getElementById("totalItems");
+
+    const grandTotal =
+      document.getElementById("grandTotal");
+
+    const checkoutBtn =
+      document.getElementById("checkoutBtn");
+
+    const cartView =
+      document.getElementById("cartView");
+
+    const checkoutView =
+      document.getElementById("checkoutView");
+
+    const successView =
+      document.getElementById("successView");
+
+    const orderForm =
+      document.getElementById("orderForm");
+
+    const orderSummaryField =
+      document.getElementById("orderSummaryField");
+
+    const orderTotalField =
+      document.getElementById("orderTotalField");
+
+    const submitTotal =
+      document.getElementById("submitTotal");
+
+    const toast =
+      document.getElementById("toast");
+
+
+    /* ================================================
+       FORMAT RUPEES
+       ================================================ */
+
+    function money(value) {
+
+      return "₹" +
+        Number(value).toLocaleString("en-IN");
+
+    }
+
+
+    /* ================================================
+       SAVE CART
+       ================================================ */
+
+    function saveCart() {
+
+      localStorage.setItem(
+        "sahilMakhanaCart",
+        JSON.stringify(cart)
+      );
+
+    }
+
+
+    /* ================================================
+       SHOW TOAST
+       ================================================ */
+
+    let toastTimer;
+
+    function showToast(message) {
+
+      clearTimeout(toastTimer);
+
+      toast.textContent = message;
+
+      toast.classList.add("show");
+
+      toastTimer = setTimeout(() => {
+
+        toast.classList.remove("show");
+
+      }, 1800);
+
+    }
+
+
+    /* ================================================
+       RENDER PRODUCTS
+       ================================================ */
+
+    function renderProducts(category = "all") {
+
+      const filteredProducts =
+        category === "all"
+          ? products
+          : products.filter(
+              product =>
+                product.category === category
+            );
+
+
+      productGrid.innerHTML =
+        filteredProducts.map(product => `
+
+          <article class="product-card">
+
+            <div class="product-image-wrap">
+
+              <img
+                class="product-image"
+                src="${product.image}"
+                alt="${product.name}"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x600/e8f5ef/176b4d?text=Makhana';">
+
+            </div>
+
+            <div class="product-info">
+
+              <div class="product-category">
+                Healthy Snack
+              </div>
+
+              <div class="product-name">
+                ${product.name}
+              </div>
+
+              <div class="product-description">
+                ${product.description}
+              </div>
+
+              <div class="product-bottom">
+
+                <div class="price">
+                  ${money(product.price)}
+                </div>
+
+                <button
+                  class="add-btn"
+                  onclick="addToCart(${product.id})">
+
+                  + Add
+
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        `).join("");
+
+    }
+
+
+    /* ================================================
+       ADD TO CART
+       ================================================ */
+
+    function addToCart(productId) {
+
+      const product =
+        products.find(
+          p => p.id === productId
+        );
+
+      if (!product) return;
+
+
+      const existing =
+        cart.find(
+          item => item.id === productId
+        );
+
+
+      if (existing) {
+
+        existing.quantity += 1;
+
+      } else {
+
+        cart.push({
+
+          id: product.id,
+
+          name: product.name,
+
+          price: product.price,
+
+          image: product.image,
+
+          quantity: 1
+
+        });
+
+      }
+
+
+      saveCart();
+
+      renderCart();
+
+      showToast(
+        product.name + " added to cart"
+      );
+
+    }
+
+
+    /* ================================================
+       CHANGE QUANTITY
+       ================================================ */
+
+    function changeQuantity(productId, change) {
+
+      const item =
+        cart.find(
+          item => item.id === productId
+        );
+
+      if (!item) return;
+
+
+      item.quantity += change;
+
+
+      if (item.quantity <= 0) {
+
+        cart =
+          cart.filter(
+            item => item.id !== productId
+          );
+
+      }
+
+
+      saveCart();
+
+      renderCart();
+
+    }
+
+
+    /* ================================================
+       REMOVE ITEM
+       ================================================ */
+
+    function removeFromCart(productId) {
+
+      cart =
+        cart.filter(
+          item => item.id !== productId
+        );
+
+      saveCart();
+
+      renderCart();
+
+      showToast("Item removed");
+
+    }
+
+
+    /* ================================================
+       CART TOTALS
+       ================================================ */
+
+    function getTotalItems() {
+
+      return cart.reduce(
+        (total, item) =>
+          total + item.quantity,
+        0
+      );
+
+    }
+
+
+    function getGrandTotal() {
+
+      return cart.reduce(
+        (total, item) =>
+          total +
+          item.price * item.quantity,
+        0
+      );
+
+    }
+
+
+    /* ================================================
+       RENDER CART
+       ================================================ */
+
+    function renderCart() {
+
+      const itemCount =
+        getTotalItems();
+
+      const total =
+        getGrandTotal();
+
+
+      cartCount.textContent =
+        itemCount;
+
+
+      totalItems.textContent =
+        itemCount;
+
+
+      grandTotal.textContent =
+        money(total);
+
+
+      checkoutBtn.disabled =
+        cart.length === 0;
+
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+          <div class="empty-cart">
+
+            <div class="empty-icon">
+              🛒
+            </div>
+
+            <strong>Your cart is empty</strong>
+
+            <p>
+              Add some delicious makhana to get started.
+            </p>
+
+          </div>
+
+        `;
+
+        return;
+
+      }
+
+
+      cartItems.innerHTML =
+        cart.map(item => {
+
+          const subtotal =
+            item.price * item.quantity;
+
+
+          return `
+
+            <div class="cart-item">
+
+              <img
+                class="cart-thumb"
+                src="${item.image}"
+                alt="${item.name}"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='https://placehold.co/200x200/e8f5ef/176b4d?text=Makhana';">
+
+              <div>
+
+                <div class="cart-item-name">
+                  ${item.name}
+                </div>
+
+                <div class="cart-item-price">
+                  ${money(item.price)} each
+                </div>
+
+                <div class="cart-item-actions">
+
+                  <div class="quantity-control">
+
+                    <button
+                      onclick="changeQuantity(${item.id}, -1)"
+                      aria-label="Decrease quantity">
+                      −
+                    </button>
+
+                    <span>
+                      ${item.quantity}
+                    </span>
+
+                    <button
+                      onclick="changeQuantity(${item.id}, 1)"
+                      aria-label="Increase quantity">
+                      +
+                    </button>
+
+                  </div>
+
+                  <strong class="item-subtotal">
+                    ${money(subtotal)}
+                  </strong>
+
+                  <button
+                    class="remove-btn"
+                    onclick="removeFromCart(${item.id})">
+
+                    Remove
+
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          `;
+
+        }).join("");
+
+    }
+
+
+    /* ================================================
+       OPEN CART
+       ================================================ */
+
+    function openCart() {
+
+      cartModal.classList.add("show");
+
+      document.body.style.overflow =
+        "hidden";
+
+      showCartView();
+
+    }
+
+
+    /* ================================================
+       CLOSE CART
+       ================================================ */
+
+    function closeCart() {
+
+      cartModal.classList.remove("show");
+
+      document.body.style.overflow =
+        "";
+
+    }
+
+
+    /* ================================================
+       CART / CHECKOUT VIEWS
+       ================================================ */
+
+    function showCartView() {
+
+      cartView.classList.remove("hidden");
+
+      checkoutView.classList.remove("show");
+
+      successView.classList.remove("show");
+
+    }
+
+
+    function showCheckoutView() {
+
+      if (cart.length === 0) {
+
+        showToast(
+          "Your cart is empty"
+        );
+
+        return;
+
+      }
+
+
+      cartView.classList.add("hidden");
+
+      checkoutView.classList.add("show");
+
+      submitTotal.textContent =
+        money(getGrandTotal());
+
+    }
+
+
+    /* ================================================
+       CREATE COMPLETE ORDER SUMMARY
+       ================================================ */
+
+    function createOrderSummary() {
+
+      let summary =
+        "SAHIL MAKHANA STORE - NEW ORDER\n";
+
+      summary +=
+        "================================\n\n";
+
+
+      summary +=
+        "ITEMS:\n";
+
+
+      cart.forEach((item, index) => {
+
+        const subtotal =
+          item.price * item.quantity;
+
+
+        summary +=
+          `${index + 1}. ${item.name}\n`;
+
+        summary +=
+          `   Quantity: ${item.quantity}\n`;
+
+        summary +=
+          `   Price: ${money(item.price)} each\n`;
+
+        summary +=
+          `   Subtotal: ${money(subtotal)}\n\n`;
+
+      });
+
+
+      summary +=
+        "================================\n";
+
+      summary +=
+        `GRAND TOTAL: ${money(getGrandTotal())}\n`;
+
+      summary +=
+        "================================\n";
+
+
+      return summary;
+
+    }
+
+
+    /* ================================================
+       CATEGORY FILTER
+       ================================================ */
+
+    document
+      .querySelectorAll(".category-btn")
+      .forEach(button => {
+
+        button.addEventListener(
+          "click",
+          () => {
+
+            document
+              .querySelectorAll(".category-btn")
+              .forEach(btn =>
+                btn.classList.remove("active")
+              );
+
+
+            button.classList.add("active");
+
+
+            renderProducts(
+              button.dataset.category
+            );
+
+          }
+        );
+
+      });
+
+
+    /* ================================================
+       CART EVENTS
+       ================================================ */
+
+    document
+      .getElementById("openCart")
+      .addEventListener(
+        "click",
+        openCart
+      );
+
+
+    document
+      .getElementById("closeCart")
+      .addEventListener(
+        "click",
+        closeCart
+      );
+
+
+    document
+      .getElementById("checkoutBtn")
+      .addEventListener(
+        "click",
+        showCheckoutView
+      );
+
+
+    document
+      .getElementById("backToCart")
+      .addEventListener(
+        "click",
+        showCartView
+      );
+
+
+    /* Click outside modal */
+
+    cartModal.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === cartModal
+        ) {
+
+          closeCart();
+
+        }
+
+      }
+    );
+
+
+    /* Escape key */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          closeCart();
+
+        }
+
+      }
+    );
+
+
+    /* ================================================
+       FORM SUBMISSION
+       ================================================ */
+
+    orderForm.addEventListener(
+      "submit",
+      function(event) {
+
+        /*
+          The form is allowed to submit normally to
+          Formspree. Before submission we construct
+          the complete readable order summary.
+        */
+
+        const summary =
+          createOrderSummary();
+
+
+        orderSummaryField.value =
+          summary;
+
+
+        orderTotalField.value =
+          money(getGrandTotal());
+
+
+        /*
+          The following gives Formspree a reply-to
+          address if one is available. It is optional.
+        */
+
+        document.getElementById(
+          "hiddenReplyTo"
+        ).value =
+          "";
+
+
+        /*
+          Save the order locally as a backup before
+          sending it to Formspree.
+        */
+
+        const customerName =
+          document.getElementById(
+            "customerName"
+          ).value.trim();
+
+
+        const customerPhone =
+          document.getElementById(
+            "customerPhone"
+          ).value.trim();
+
+
+        const customerAddress =
+          document.getElementById(
+            "customerAddress"
+          ).value.trim();
+
+
+        const instructions =
+          document.getElementById(
+            "instructions"
+          ).value.trim();
+
+
+        const backupOrder = {
+
+          customerName,
+
+          customerPhone,
+
+          customerAddress,
+
+          instructions,
+
+          items: cart,
+
+          total: getGrandTotal(),
+
+          createdAt:
+            new Date().toISOString()
+
+        };
+
+
+        localStorage.setItem(
+          "sahilMakhanaLastOrder",
+          JSON.stringify(
+            backupOrder
+          )
+        );
+
+
+        /*
+          Disable button to prevent accidental
+          duplicate clicks.
+        */
+
+        const submitButton =
+          document.getElementById(
+            "submitOrder"
+          );
+
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+          "Sending Order...";
+
+
+        /*
+          Clear cart shortly after allowing Formspree
+          to receive the form.
+
+          Normal Formspree submission navigates to its
+          confirmation page. The JavaScript also prepares
+          the cart for the next visit.
+        */
+
+        setTimeout(() => {
+
+          cart = [];
+
+          saveCart();
+
+        }, 1000);
+
+      }
+    );
+
+
+    /* ================================================
+       INITIALIZE
+       ================================================ */
+
+    renderProducts();
+
+    renderCart();
+
+
+    /*
+      Update WhatsApp links automatically.
+    */
+
+    document
+      .querySelectorAll(
+        'a[href^="https://wa.me/"]'
+      )
+      .forEach(link => {
+
+        link.href =
+          WHATSAPP_URL;
+
+      });
+
+  </script>
+
+</body>
+</html>
