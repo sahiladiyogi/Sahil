@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sahil Makhana Store - Fresh makhana delivered to your door.">
+<title>Sahil Makhana Store | Fresh Makhana</title>
+<style>
+:root{--primary:#166534;--primary2:#15803d;--accent:#f59e0b;--cream:#fffdf7;--text:#172018;--muted:#647067;--card:#fff;--line:#e7ece7;--shadow:0 12px 35px rgba(23,32,24,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--text);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button,input,textarea{font:inherit}button{cursor:pointer}.wrap{max-width:1100px;margin:auto;padding:0 16px}
+header{background:linear-gradient(135deg,#f0fdf4,#fffdf7);border-bottom:1px solid var(--line);padding:22px 0 18px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:48px;height:48px;border-radius:15px;background:var(--primary);display:grid;place-items:center;color:#fff;font-weight:900;font-size:23px;box-shadow:0 8px 20px rgba(22,101,52,.2)}
+h1{font-size:clamp(25px,7vw,40px);margin:0;letter-spacing:-1px}.tag{margin:3px 0 0;color:var(--muted);font-size:14px}.location{margin:15px 0 0;font-size:13px;color:var(--muted)}
+.hero{padding:24px 0 8px}.hero h2{font-size:27px;margin:0 0 7px}.hero p{margin:0;color:var(--muted)}
+.filters{display:flex;gap:8px;overflow:auto;padding:18px 0 10px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.filter{border:1px solid #d9e2d9;background:#fff;border-radius:999px;padding:9px 15px;white-space:nowrap;color:#435047}.filter.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding:12px 0 90px}.product{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;animation:up .35s ease}.product img{width:100%;aspect-ratio:1/1;object-fit:cover;background:#f1f5f1}.info{padding:13px}.info h3{font-size:16px;margin:0 0 5px}.desc{font-size:12px;color:var(--muted);min-height:32px}.price{font-weight:800;font-size:18px;margin:8px 0 11px}.add{width:100%;border:0;border-radius:11px;padding:11px;background:var(--primary);color:#fff;font-weight:750}.add:active{transform:scale(.97)}
+.floating{position:fixed;right:16px;bottom:18px;z-index:20;border:0;background:var(--primary);color:#fff;border-radius:18px;padding:13px 16px;box-shadow:0 12px 30px rgba(22,101,52,.3);font-weight:800;display:flex;align-items:center;gap:9px}.count{min-width:23px;height:23px;padding:0 6px;border-radius:99px;background:var(--accent);color:#271900;display:grid;place-items:center;font-size:12px}
+.whatsapp{position:fixed;left:16px;bottom:18px;z-index:19;width:52px;height:52px;border-radius:50%;background:#25d366;color:#fff;text-decoration:none;display:grid;place-items:center;font-weight:900;font-size:21px;box-shadow:0 10px 25px rgba(37,211,102,.3)}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:30;display:none;align-items:flex-end}.overlay.open{display:flex}.modal{background:#fff;width:100%;max-height:92vh;overflow:auto;border-radius:24px 24px 0 0;padding:18px 16px 25px;animation:slide .25s ease}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.modal h2{margin:0}.close{border:0;background:#eef3ee;width:38px;height:38px;border-radius:50%;font-size:20px}
+.cart-row{display:grid;grid-template-columns:1fr auto;gap:8px;padding:13px 0;border-bottom:1px solid var(--line)}.cart-name{font-weight:750}.cart-price{color:var(--muted);font-size:13px;margin-top:3px}.qty{display:flex;align-items:center;gap:8px}.qty button{width:31px;height:31px;border:1px solid var(--line);background:#fff;border-radius:9px}.remove{border:0;background:none;color:#b42318;font-size:12px;padding:4px 0}.summary{padding:15px 0}.total{display:flex;justify-content:space-between;font-size:20px;font-weight:850}
+.primary{width:100%;border:0;background:var(--primary);color:#fff;border-radius:12px;padding:13px;font-weight:800}.empty{text-align:center;padding:35px 10px;color:var(--muted)}
+form{display:grid;gap:12px}label{font-size:13px;font-weight:700}input,textarea{width:100%;border:1px solid #d8e0d8;border-radius:11px;padding:12px;background:#fff;outline:none}input:focus,textarea:focus{border-color:var(--primary)}textarea{min-height:90px;resize:vertical}.back{border:0;background:none;color:var(--primary);padding:5px 0;font-weight:700}.notice{background:#f0fdf4;border:1px solid #ccebd4;padding:11px;border-radius:12px;font-size:13px;color:#24613a}
+.confirm{text-align:center;padding:30px 8px}.check{width:65px;height:65px;margin:auto;border-radius:50%;background:#dcfce7;color:var(--primary);display:grid;place-items:center;font-size:32px}
+footer{padding:30px 16px 90px;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:13px}footer a{color:var(--primary);text-decoration:none}
+@keyframes up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes slide{from{transform:translateY(30px);opacity:.5}to{transform:none;opacity:1}}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.overlay{align-items:center}.modal{max-width:600px;border-radius:24px}.wrap{padding:0 22px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <div class="brand"><div class="logo">SM</div><div><h1>SAHIL MAKHANA STORE</h1><p class="tag">Fresh MAKHANA delivered to your door</p></div></div>
+  <p class="location">📍 Bilaspur, Himachal Pradesh &nbsp;•&nbsp; 📞 <a href="tel:8699537289">8699537289</a></p>
+</div></header>
+
+<main class="wrap">
+<section class="hero"><h2>Healthy snacks, made with care</h2><p>Hygienically roasted makhana from our home kitchen.</p></section>
+<nav class="filters" aria-label="Product categories"><button class="filter active" data-cat="all">All</button><button class="filter" data-cat="snacks">Healthy Snacks</button></nav>
+<section id="products" class="grid" aria-live="polite"></section>
+</main>
+
+<a class="whatsapp" href="https://wa.me/918699537289" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WA</a>
+<button class="floating" id="cartBtn" aria-label="Open cart">🛒 Cart <span class="count" id="cartCount">0</span></button>
+
+<div class="overlay" id="cartOverlay">
+ <div class="modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+  <div class="modal-head"><h2 id="cartTitle">Your Cart</h2><button class="close" id="closeCart">×</button></div>
+  <div id="cartView"></div>
+ </div>
+</div>
+
+<div class="overlay" id="checkoutOverlay">
+ <div class="modal" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+  <div class="modal-head"><h2 id="checkoutTitle">Place Your Order</h2><button class="close" id="closeCheckout">×</button></div>
+  <div class="notice">No online payment is required. We will contact you to confirm availability, pricing and delivery.</div><br>
+  <form id="orderForm" action="https://formspree.io/f/mnpqlwvo" method="POST">
+   <input type="hidden" name="_subject" value="New order - Sahil Makhana Store">
+   <input type="hidden" name="order_summary" id="orderSummary">
+   <input type="hidden" name="grand_total" id="orderTotal">
+   <label>Customer Name *<input name="customer_name" required autocomplete="name" placeholder="Your name"></label>
+   <label>Phone Number *<input name="phone" required type="tel" inputmode="tel" autocomplete="tel" placeholder="10-digit mobile number"></label>
+   <label>Delivery Address *<textarea name="address" required autocomplete="street-address" placeholder="House no., area, city, PIN"></textarea></label>
+   <label>Special Instructions (optional)<textarea name="instructions" placeholder="Any delivery notes..."></textarea></label>
+   <button class="primary" type="submit">Place Order</button>
+  </form>
+ </div>
+</div>
+
+<div class="overlay" id="confirmOverlay">
+ <div class="modal"><div class="confirm">
+  <div class="check">✓</div><h2>Order placed!</h2>
+  <p id="confirmText">Sahil Makhana Store will contact you on WhatsApp to confirm.</p>
+  <a class="primary" style="display:block;text-decoration:none" href="https://wa.me/918699537289" target="_blank" rel="noopener">Chat on WhatsApp</a><br>
+  <button class="back" id="closeConfirm">Continue Shopping</button>
+ </div></div>
+</div>
+
+<footer>© <span id="year"></span> SAHIL MAKHANA STORE<br><a href="mailto:sahilthakur1650@gmail.com">sahilthakur1650@gmail.com</a></footer>
+
+<script>
+const products=[
+ {id:"black-salt-150",name:"Black Salt Makhana",price:200,category:"snacks",desc:"150g • Hygienically roasted in home kitchen",image:"https://i.ibb.co/Q3CyhShp/black-salt-makhana.jpg"},
+ {id:"ghee-150",name:"Desi Ghee Makhana",price:280,category:"snacks",desc:"150g • Rich, crunchy and freshly roasted",image:"https://i.ibb.co/whfyCG3G/desi-ghee-makhana.jpg"},
+ {id:"classic-150",name:"Classic Roasted Makhana",price:220,category:"snacks",desc:"150g • Lightly roasted and crunchy",image:"https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=700&q=75"}
+];
+
+let cart=JSON.parse(localStorage.getItem("sahilMakhanaCart")||"{}");
+const $=s=>document.querySelector(s);
+const money=n=>"₹"+Number(n).toLocaleString("en-IN");
+
+function save(){localStorage.setItem("sahilMakhanaCart",JSON.stringify(cart));renderCart();}
+function renderProducts(cat="all"){
+ const list=products.filter(p=>cat==="all"||p.category===cat);
+ $("#products").innerHTML=list.map(p=>`<article class="product">
+ <img src="${p.image}" alt="${p.name} 150g" loading="lazy" onerror="this.style.objectFit='contain';this.alt+=' (image unavailable)'">
+ <div class="info"><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="price">${money(p.price)}</div>
+ <button class="add" onclick="addToCart('${p.id}')">Add to Cart</button></div></article>`).join("");
+}
+function addToCart(id){cart[id]=(cart[id]||0)+1;save();$("#cartBtn").animate([{transform:"scale(1.08)"},{transform:"scale(1)"}],{duration:220});}
+function items(){return Object.entries(cart).map(([id,qty])=>({p:products.find(x=>x.id===id),qty})).filter(x=>x.p&&x.qty>0);}
+function renderCart(){
+ const its=items();let count=its.reduce((a,x)=>a+x.qty,0),total=its.reduce((a,x)=>a+x.qty*x.p.price,0);
+ $("#cartCount").textContent=count;
+ if(!its.length){$("#cartView").innerHTML='<div class="empty">Your cart is empty.<br>Add some delicious makhana first.</div>';return;}
+ $("#cartView").innerHTML=its.map(({p,qty})=>`<div class="cart-row">
+ <div><div class="cart-name">${p.name}</div><div class="cart-price">${money(p.price)} × ${qty} = <b>${money(p.price*qty)}</b></div>
+ <button class="remove" onclick="removeItem('${p.id}')">Remove</button></div>
+ <div class="qty"><button onclick="changeQty('${p.id}',-1)">−</button><b>${qty}</b><button onclick="changeQty('${p.id}',1)">+</button></div>
+ </div>`).join("")+`<div class="summary"><div class="total"><span>Grand Total</span><span>${money(total)}</span></div></div>
+ <button class="primary" onclick="openCheckout()">Place Order</button>`;
+}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];save();}
+function removeItem(id){delete cart[id];save();}
+function openModal(id){$(id).classList.add("open");document.body.style.overflow="hidden";}
+function closeModal(id){$(id).classList.remove("open");if(!document.querySelector(".overlay.open"))document.body.style.overflow="";}
+function openCheckout(){
+ if(!items().length)return;
+ closeModal("#cartOverlay");buildOrderSummary();openModal("#checkoutOverlay");
+}
+function buildOrderSummary(){
+ const its=items(),total=its.reduce((a,x)=>a+x.qty*x.p.price,0);
+ const text=its.map((x,i)=>`${i+1}. ${x.p.name} | Qty: ${x.qty} | Unit: ${money(x.p.price)} | Subtotal: ${money(x.p.price*x.qty)}`).join("\n");
+ $("#orderSummary").value=text+`\n\nGRAND TOTAL: ${money(total)}`;
+ $("#orderTotal").value=money(total);
+}
+$("#cartBtn").onclick=()=>{renderCart();openModal("#cartOverlay")};
+$("#closeCart").onclick=()=>closeModal("#cartOverlay");
+$("#closeCheckout").onclick=()=>closeModal("#checkoutOverlay");
+$("#closeConfirm").onclick=()=>closeModal("#confirmOverlay");
+document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{document.querySelectorAll(".filter").forEach(x=>x.classList.remove("active"));b.classList.add("active");renderProducts(b.dataset.cat)});
+["#cartOverlay","#checkoutOverlay","#confirmOverlay"].forEach(id=>$(id).addEventListener("click",e=>{if(e.target.id===id)closeModal(id)}));
+
+$("#orderForm").addEventListener("submit",async e=>{
+ e.preventDefault(); if(!items().length)return;
+ buildOrderSummary();
+ const btn=e.target.querySelector("button[type=submit]");btn.disabled=true;btn.textContent="Sending order…";
+ try{
+   const response=await fetch(e.target.action,{method:"POST",body:new FormData(e.target),headers:{Accept:"application/json"}});
+   if(!response.ok)throw new Error("Form submission failed");
+   const name=e.target.customer_name.value.trim();
+   cart={};save();closeModal("#checkoutOverlay");$("#confirmText").textContent=`Thank you${name?", "+name:""}! Sahil Makhana Store will contact you on WhatsApp to confirm.`;
+   openModal("#confirmOverlay");e.target.reset();
+ }catch(err){alert("We couldn't send the order right now. Please try again or contact us on WhatsApp.");}
+ finally{btn.disabled=false;btn.textContent="Place Order";}
+});
+$("#year").textContent=new Date().getFullYear();
+renderProducts();renderCart();
+</script>
+</body>
+</html>
